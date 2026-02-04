@@ -1,0 +1,85 @@
+/* VFS Autofill Extension - Content Styles */
+
+/* Indicator styling */
+#vfs-autofill-indicator {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Highlight filled fields */
+.vfs-autofill-filled {
+  background-color: #d5f4e6 !important;
+  border-color: #27ae60 !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Pulse animation for filled fields */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(39, 174, 96, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(39, 174, 96, 0);
+  }
+}
+
+.vfs-autofill-filled-pulse {
+  animation: pulse 1s ease-out;
+}
+
+/* Success notification */
+.vfs-autofill-success-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 10001;
+  box-shadow: 0 4px 20px rgba(39, 174, 96, 0.4);
+  animation: notificationSlideIn 0.5s ease-out;
+}
+
+@keyframes notificationSlideIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Error notification */
+.vfs-autofill-error-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 10001;
+  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
+  animation: notificationSlideIn 0.5s ease-out;
+}

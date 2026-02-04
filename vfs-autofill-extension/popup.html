@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFS Autofill</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>🇯🇵 VFS Japan Autofill</h1>
+      <p class="subtitle">Manage up to 5 profiles</p>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="profiles">Profiles</button>
+      <button class="tab-btn" data-tab="add-profile">Add/Edit</button>
+    </div>
+
+    <!-- Profiles Tab -->
+    <div id="profiles-tab" class="tab-content active">
+      <div id="profiles-list" class="profiles-list">
+        <!-- Profiles will be dynamically loaded here -->
+      </div>
+      <div id="no-profiles" class="no-profiles">
+        <p>No profiles saved yet.</p>
+        <p>Click "Add/Edit" to create a new profile.</p>
+      </div>
+    </div>
+
+    <!-- Add/Edit Profile Tab -->
+    <div id="add-profile-tab" class="tab-content">
+      <form id="profile-form">
+        <input type="hidden" id="edit-profile-id" value="">
+        
+        <div class="form-group">
+          <label for="profile-name">Profile Name *</label>
+          <input type="text" id="profile-name" placeholder="e.g., My Visa Application" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name *</label>
+            <input type="text" id="first-name" placeholder="JUAN" required>
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name *</label>
+            <input type="text" id="last-name" placeholder="DELA CRUZ" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="gender">Gender *</label>
+            <select id="gender" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="nationality">Nationality *</label>
+            <select id="nationality" required>
+              <option value="PHILIPPINES">PHILIPPINES</option>
+              <option value="INDIA">INDIA</option>
+              <option value="CHINA">CHINA</option>
+              <option value="VIETNAM">VIETNAM</option>
+              <option value="INDONESIA">INDONESIA</option>
+              <option value="THAILAND">THAILAND</option>
+              <option value="MALAYSIA">MALAYSIA</option>
+              <option value="SINGAPORE">SINGAPORE</option>
+              <option value="SOUTH KOREA">SOUTH KOREA</option>
+              <option value="TAIWAN">TAIWAN</option>
+              <option value="HONG KONG">HONG KONG</option>
+              <option value="UNITED STATES">UNITED STATES</option>
+              <option value="UNITED KINGDOM">UNITED KINGDOM</option>
+              <option value="AUSTRALIA">AUSTRALIA</option>
+              <option value="CANADA">CANADA</option>
+              <option value="OTHER">OTHER</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="date-of-birth">Date of Birth (DD/MM/YYYY) *</label>
+          <input type="text" id="date-of-birth" placeholder="15/03/1990" pattern="\d{2}/\d{2}/\d{4}" required>
+          <small>Format: DD/MM/YYYY</small>
+        </div>
+
+        <div class="form-group">
+          <label for="passport-number">Passport Number *</label>
+          <input type="text" id="passport-number" placeholder="P1234567A" required>
+        </div>
+
+        <div class="form-group">
+          <label for="passport-expiry">Passport Expiry Date (DD/MM/YYYY) *</label>
+          <input type="text" id="passport-expiry" placeholder="15/03/2030" pattern="\d{2}/\d{2}/\d{4}" required>
+          <small>Format: DD/MM/YYYY</small>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group country-code">
+            <label for="country-code">Country Code *</label>
+            <input type="text" id="country-code" placeholder="63" maxlength="3" value="63" required>
+          </div>
+          <div class="form-group mobile-number">
+            <label for="mobile-number">Mobile Number *</label>
+            <input type="text" id="mobile-number" placeholder="9059151105" maxlength="15" required>
+            <small>10 digits without leading 0</small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" placeholder="example@email.com" required>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+          <button type="submit" id="save-btn" class="btn btn-primary">Save Profile</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Status Message -->
+    <div id="status-message" class="status-message"></div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <small>Max 5 profiles • Data stored locally</small>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
